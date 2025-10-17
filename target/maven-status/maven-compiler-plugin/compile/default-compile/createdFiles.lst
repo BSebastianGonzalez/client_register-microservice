@@ -1,0 +1,7 @@
+com\example\client_register\repository\ClienteRepository.class
+com\example\client_register\configuration\RabbitConfig.class
+com\example\client_register\ClientRegisterApplication.class
+com\example\client_register\controller\ClienteController.class
+com\example\client_register\service\ClienteService.class
+com\example\client_register\model\Cliente.class
+com\example\client_register\event\ClienteCreadoEvent.class
