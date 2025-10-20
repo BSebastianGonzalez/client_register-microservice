@@ -23,6 +23,7 @@ public class Cliente {
     private String telefono;
     private String direccion;
     private int codigoPostal;
+    private String ciudad;
     private String email;
     private String contrasenia;
 }
