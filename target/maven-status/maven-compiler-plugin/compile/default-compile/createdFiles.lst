@@ -6,3 +6,5 @@ com\example\client_register\service\ClienteService.class
 com\example\client_register\model\Cliente.class
 com\example\client_register\configuration\WebConfig.class
 com\example\client_register\event\ClienteCreadoEvent.class
+com\example\client_register\dto\LoginResponse.class
+com\example\client_register\dto\LoginRequest.class
