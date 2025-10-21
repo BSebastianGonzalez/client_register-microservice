@@ -14,7 +14,10 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitConfig {
     public static final String EXCHANGE = "cliente.exchange";
     public static final String ROUTING_KEY = "cliente.creado";
-    public static final String QUEUE = "email.queue";
+
+    public static final String EMAIL_QUEUE = "email.queue";
+    public static final String PUNTOS_QUEUE = "puntos.queue";
+    public static final String ENTREGA_QUEUE = "entrega.queue";
 
     @Bean
     public Jackson2JsonMessageConverter jackson2JsonMessageConverter() {
@@ -34,12 +37,32 @@ public class RabbitConfig {
     }
 
     @Bean
-    public Queue queue() {
-        return new Queue(QUEUE, true);
+    public Queue emailQueue() {
+        return new Queue(EMAIL_QUEUE, true);
     }
 
     @Bean
-    public Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(ROUTING_KEY);
+    public Queue puntosQueue() {
+        return new Queue(PUNTOS_QUEUE, true);
+    }
+
+    @Bean
+    public Queue entregaQueue() {
+        return new Queue(ENTREGA_QUEUE, true);
+    }
+
+    @Bean
+    public Binding emailBinding(Queue emailQueue, TopicExchange exchange) {
+        return BindingBuilder.bind(emailQueue).to(exchange).with(ROUTING_KEY);
+    }
+
+    @Bean
+    public Binding puntosBinding(Queue puntosQueue, TopicExchange exchange) {
+        return BindingBuilder.bind(puntosQueue).to(exchange).with(ROUTING_KEY);
+    }
+
+    @Bean
+    public Binding entregaBinding(Queue entregaQueue, TopicExchange exchange) {
+        return BindingBuilder.bind(entregaQueue).to(exchange).with(ROUTING_KEY);
     }
 }
