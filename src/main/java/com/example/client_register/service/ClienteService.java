@@ -43,8 +43,8 @@ public class ClienteService {
         return savedCliente;
     }
 
-    public LoginResponse login(String correo, String contrasenia) {
-        Optional<Cliente> clienteOptional = clienteRepository.findByEmail(correo);
+    public LoginResponse login(String email, String contrasenia) {
+        Optional<Cliente> clienteOptional = clienteRepository.findByEmail(email);
 
         if (clienteOptional.isPresent()) {
             Cliente cliente = clienteOptional.get();
